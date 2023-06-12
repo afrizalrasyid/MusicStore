@@ -2,279 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/boombox-fill.svg" type = "image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"> 
-    <!-- <style type="text/tailwindcss">
-        * {
-            border: 1px solid red;
-        }
-    </style> -->
-    
-    <script src="https://cdn.tailwindcss.com"></script>    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        roboto: ['Roboto'],
-                        opensans: ['Open Sans'],
-                        poppins: ['Poppins'],
-                    },
-                },
-            },
-        };
-    </script>
-    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
-    <title>My Music Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Admin - Dashboard</title>
 </head>
 <body>
-    <section>
-        <nav class="p-5 bg-zinc-800 shadow md:flex md:items-center md:justify-between">
-            <div class="flex justify-between">
-                <a href="index.html" class="flex items-center mb-4 sm:mb-0">
-                    <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-boombox" viewBox="0 0 16 16">
+<!-- component -->
+<!-- This is an example component -->
+<div>
+    <nav class="bg-zinc-200 border-b border-gray-400 fixed z-30 w-full">
+       <div class="px-3 py-3 lg:px-5 lg:pl-3">
+          <div class="flex items-center justify-between">
+             <div class="flex items-center justify-start">
+                <button id="toggleSidebarMobile" aria-expanded="true" aria-controls="sidebar" class="lg:hidden mr-2 text-gray-600 hover:text-gray-900 cursor-pointer p-2 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 rounded">
+                   <svg id="toggleSidebarMobileHamburger" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                   </svg>
+                   <svg id="toggleSidebarMobileClose" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                   </svg>
+                </button>
+                <a href="#" class="text-xl font-bold flex items-center lg:ml-2.5">
+                    <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-boombox" viewBox="0 0 16 16">
                         <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
                         <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
                         <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
                         <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
                     </svg>
-                    <span class="text-2xl ml-3 font-semibold font-poppins text-white">My Music</span>
+                <span class="pl-1 whitespace-nowrap">My Music</span>
                 </a>
-
-                <span class="text-3xl cursor-pointer md:hidden block mx-2 text-white">
-                    <ion-icon name="menu" onclick="Menu(this)"></ion-icon>                    
-                </span>
-            </div>
-
-            <ul class="md:flex md:items-center text-white pt-4 md:pt-0 md:z-auto md:static absolute bg-zinc-800 w-full left-0 md:w-auto py-4 md:py-0 pl-7 md:pl-0 opacity-0 md:opacity-100 top-[-400px] transition-all ease-in duration-500">
-                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
-                    <a class="mx-4" href="index.html" class="text-xl">Home</a>                                                                    
-                </li>
-                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
-                    <a class="mx-4" href="gallery.html" class="text-xl">Gallery</a>
-                </li>
-                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
-                    <a class="mx-4" href="news.html" class="text-xl">News</a>
-                </li>
-                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
-                    <a class="mx-4" href="store.html" class="text-xl">Store</a>
-                </li>
-                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
-                    <a class="mx-4" href="about.html" class="text-xl">About</a>
-                </li>
-            </ul>
-        </nav>
-    </section>
-
-    <section style="background-image: url('./img/header5.jpg'); background-repeat: no-repeat;  background-size: cover;">
-        <div class="p-52 text-center">
-            <div>
-              <h1 class="font-poppins font-semibold text-2xl md:text-6xl text-white ">Discover Your Music</h1>
-              <p class="lead font-opensans font-light" style="color: white;">“When you play, never mind who listens to you.” – Robert Schumann</p>
-              <a class="btn btn-outline-secondary text-xl  font-poppins text-white hover:text-slate-500"  href="gallery.html">Explore More</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="md:h-full flex items-center text-white my-12">
-        <div class="flex flex-wrap m-12">
-            <div class="p-4 sm:w-1/2 lg:w-1/3">
-                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                    <img src="./img/guitar2.jpg" class="lg:h-72 md:h-48 w-full object-cover object-center">
-                    <div class="p-6 hover:bg-zinc-700 text-black hover:text-white transition duration-300 ease-in">
-                        <h1 class="text-2xl font-semibold font-poppins mb-3">Guitar</h1>                    
-                        <p class="leading-relaxed font-light font-poppins mb-[6.6rem]">Meet Your Other Half.</p>                    
-                        <div class="text-black hover:text-white">
-                            <a href="guitar.html" class="text-black inline-flex items-center md:mb-2 lg:mb-0 bg-gray-300 hover:bg-white rounded-lg p-3 font-poppins">View Details</a>                    
-                        </div>
-                    </div>
+                <form action="#" method="GET" class="hidden lg:block lg:pl-32">
+                   <label for="topbar-search" class="sr-only">Search</label>
+                   <div class="mt-1 relative lg:w-96">
+                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                         <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                         </svg>
+                      </div>
+                      <input type="text" name="email" id="topbar-search" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
+                   </div>
+                </form>
+             </div>
+             <div class="flex items-center">
+                <button id="toggleSidebarMobileSearch" type="button" class="lg:hidden text-gray-500 hover:text-gray-900 hover:bg-gray-100 p-2 rounded-lg">
+                   <span class="sr-only">Search</span>
+                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                   </svg>
+                </button>                        
+             </div>
+          </div>
+       </div>
+    </nav>
+    <div class="flex overflow-hidden bg-white pt-16">
+       <aside id="sidebar" class="fixed hidden z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75" aria-label="Sidebar">
+          <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-zinc-200 pt-0">
+             <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+                <div class="flex-1 px-3 bg-zinc-200 divide-y space-y-1">
+                   <ul class="space-y-2 pb-2">
+                      <li>
+                         <form action="#" method="GET" class="lg:hidden">
+                            <label for="mobile-search" class="sr-only">Search</label>
+                            <div class="relative">
+                               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                  <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                     <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                                  </svg>
+                               </div>
+                               <input type="text" name="email" id="mobile-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-600 focus:ring-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
+                            </div>
+                         </form>
+                      </li>
+                      <li>
+                         <a href="#" class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
+                            <svg class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                               <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                               <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                            </svg>
+                            <span class="ml-3">Dashboard</span>
+                         </a>
+                      </li>
+                      <li>
+                         <a href="#" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                            <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                               <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="ml-3 flex-1 whitespace-nowrap">Users</span>
+                         </a>
+                      </li>
+                      <li>
+                         <a href="#" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                            <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                               <path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="ml-3 flex-1 whitespace-nowrap">Gallery</span>
+                         </a>
+                      </li>
+                      <li>
+                         <a href="#" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                            <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                               <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="ml-3 flex-1 whitespace-nowrap">Logout</span>
+                         </a>
+                      </li>                      
+                   </ul>
                 </div>
-            </div>
-
-            <div class="p-4 sm:w-1/2 lg:w-1/3 ">
-                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                    <img src="./img/drum1.jpg" class="lg:h-72 md:h-48 w-full object-cover object-center">
-                    <div class="p-6 hover:bg-zinc-700 text-black hover:text-white transition duration-300 ease-in">
-                        <h1 class="text-2xl font-semibold font-poppins mb-3">Drum</h1>                    
-                        <p class="leading-relaxed mb-[5rem] font-light font-poppins">Free yourself in Create, Inspire, Connect, and Creativity.</p>                    
-                        <div class="text-black hover:text-white">
-                            <a href="drum.html" class="text-black inline-flex items-center md:mb-2 lg:mb-0 bg-gray-300 hover:bg-white rounded-lg p-3 font-poppins">View Details</a>                    
-                        </div>
+             </div>
+          </div>
+       </aside>
+       <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
+       <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
+          <main>
+             
+          </main>
+          <section>        
+            <footer class="bg-zinc-800 rounded-lg shadow dark:bg-gray-900 m-4 text-white">
+                <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                    <div class="sm:flex sm:items-center sm:justify-between">
+                        <a href="index.html" class="flex items-center mb-4 sm:mb-0">
+                            <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-boombox" viewBox="0 0 16 16">
+                                <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                                <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                                <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+                                <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
+                            </svg>
+                            <span class="text-2xl ml-3 font-semibold">My Music</span>
+                        </a>
+                        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium font-poppins  sm:mb-0 ">
+                            <li>
+                                <a href="index.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="gallery.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Users</a>
+                            </li>
+                            <li>
+                                <a href="news.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Gallery</a>
+                            </li>
+                            <li>
+                                <a href="store.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Logout</a>
+                            </li>
+                            <li>
+                                <a href="about.html" class="hover:underline">About</a>
+                            </li>
+                        </ul>
                     </div>
+                    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                    <span class="block text-sm sm:text-center ">© 2023 MyMusic™. All Rights Reserved.</span>
                 </div>
-            </div>
-
-            <div class="p-4 sm:w-1/2 lg:w-1/3">
-                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                    <img src="./img/piano1.jpg" class="lg:h-72 md:h-48 w-full object-cover object-center">
-                    <div class="p-6 hover:bg-zinc-700 text-black hover:text-white transition duration-300 ease-in">
-                        <h1 class="text-2xl font-semibold font-poppins mb-3">Piano</h1>                    
-                        <p class="leading-relaxed mb-[6.6rem] font-light font-poppins">Skills and innovation in perfect harmony.</p>                    
-                        <div class="text-black hover:text-white">
-                            <a href="piano.html" class="text-black inline-flex items-center md:mb-2 lg:mb-0 bg-gray-300 hover:bg-white rounded-lg p-3 font-poppins">View Details</a>                    
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>        
-    </section>
-
-    <section>
-        <div class="max-w-7xl mx-auto">
-            <div id="default-carousel" class="relative" data-carousel="static">
-                <div class="overflow-hidden relative rounded-lg sm:h-64 xl:h-[30rem] 2xl:h-96">
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
-                        <img src="./img/carousel1.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
-                    </div>
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
-                        <img src="./img/carousel2.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
-                    </div>
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
-                        <img src="./img/carousel3.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
-                    </div>
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
-                        <img src="./img/carousel4.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
-                    </div>
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
-                        <img src="./img/carousel5.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
-                    </div>
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
-                        <img src="./img/carousel6.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
-                    </div>
-                </div>                
-
-                <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
-                    <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30">
-                        <ion-icon class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" name="chevron-back-outline"></ion-icon>
-                        <span class="hidden">Left</span>
-                    </span>
-                </button>
-
-                <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
-                    <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 ">
-                        <ion-icon class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" name="chevron-forward-outline"></ion-icon>
-                        <span class="hidden">Right</span>
-                    </span>
-                </button>        
-            </div>
-        </div>
-    </section>   
-        
-    <section>
-        <div class="bg-white sm:py-32 ">
-            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-                <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-                    <div class="lg:pr-4 mx-4 md:mx-0">
-                        <div class="lg:max-w-lg">                            
-                            <h1 class="mt-2 md:text-4xl font-bold font-poppins tracking-tight text-gray-900 text-3xl">Reach Out to Asia</h1>
-                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">The owner of the most expensive guitar was won by a Fender Stratocaster brand guitar with the 'Reach Out to Asia' edition which in 2005 sold for IDR 38 billion. The uniqueness of this guitar is the signature of 19 world rock stars such as Jimmy Page, Mick Jagger, Eric Clapton, Keith Richards, Brian May, David Gilmour, Jeff Beck, Liam Gallagher, Angus, Malcolm Young, and Bryan Adams.</p>
-                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">This guitar was made specifically to help tsunami victims in the Asian region in 2004 coordinated by Bryan Adams. Because it's the human side that further adds to the value of this guitar. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="ml-12 md:-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-                    <img class="w-[48rem] rounded-xl  shadow-xl sm:w-[57rem]" src="./img/content1.png" alt="">
-                </div>
-                
-            </div>
-        </div>          
-    </section>
-
-    <hr class="w-[70rem] mx-auto"/>
-
-    <section>
-        <div class="bg-white sm:py-32 ">
-            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-                <div class="lg:col-span-1 lg:col-start-2 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-1 lg:gap-x-8 lg:px-8">
-                    <div class="lg:pr-4 mx-4 md:mx-0">
-                        <div class="lg:max-w-lg">                            
-                            <h1 class="mt-2 md:text-4xl font-bold font-poppins tracking-tight text-gray-900 text-3xl">From the Oldest</h1>
-                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">The Geisenklösterle flute is an ancient flute made of swan bone and mammoth ivory. This flute comes from the plains of Europe, Germany to be precise. The Geisenklösterle flute has an age of 42,000-43,000 years which makes it the oldest musical instrument in the world.</p>
-                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">The flute was found in the Geisenklösterle Cave archaeological site about a decade ago. There are 3 flutes at once found in the cave. The flutes could have been used for an ancient ritual or simply for entertainment.</p>
-                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">The Geisenklösterle flute has special ornamentation and high artistry which makes this instrument very special for historians. On the other hand, there are also archaeologists who believe that this flute could be 40,000-45,000 years old.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="ml-11 p-12 lg:sticky lg:top-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-                    <img class="w-[48rem] rounded-xl  shadow-xl sm:w-[57rem]" src="./img/content2.jpg" alt="">
-                </div>
-                
-            </div>
-        </div>          
-    </section>
-
-    <hr class="w-[70rem] mx-auto"/>
-
-    <section>
-        <div class="bg-white sm:py-32 ">
-            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-                <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-                    <div class="lg:pr-4 mx-4 md:mx-0">
-                        <div class="lg:max-w-lg">                            
-                            <h1 class="mt-2 md:text-4xl font-bold font-poppins tracking-tight text-gray-900 text-3xl">Start from Young</h1>                            
-                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">Music can play a role in growing intelligence and improving children's memory, this is because when listening to music, children's brain cells work more actively. Playing a musical instrument can train motor skills and ear sensitivity to develop coordination between various senses.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="ml-12 md:-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-                    <img class="w-[48rem] rounded-xl  shadow-xl sm:w-[57rem]" src="./img/content3.jpg" alt="">
-                </div>
-                
-            </div>
-        </div>          
-    </section>
-    
-    <section>        
-        <footer class="bg-zinc-800 rounded-lg shadow dark:bg-gray-900 m-4 text-white">
-            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                <div class="sm:flex sm:items-center sm:justify-between">
-                    <a href="index.html" class="flex items-center mb-4 sm:mb-0">
-                        <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-boombox" viewBox="0 0 16 16">
-                            <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
-                            <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
-                            <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
-                            <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
-                        </svg>
-                        <span class="text-2xl ml-3 font-semibold">My Music</span>
-                    </a>
-                    <ul class="flex flex-wrap items-center mb-6 text-sm font-medium font-poppins  sm:mb-0 ">
-                        <li>
-                            <a href="index.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Home</a>
-                        </li>
-                        <li>
-                            <a href="gallery.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="news.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">News</a>
-                        </li>
-                        <li>
-                            <a href="store.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Store</a>
-                        </li>
-                        <li>
-                            <a href="about.html" class="hover:underline">About</a>
-                        </li>
-                    </ul>
-                </div>
-                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                <span class="block text-sm sm:text-center ">© 2023 MyMusic™. All Rights Reserved.</span>
-            </div>
-        </footer>
-    </section>
-
-    
-    <script>
-        function Menu(e){
-          let list = document.querySelector('ul');
-          e.name === 'menu' ? (e.name = "close",list.classList.add('top-[70px]') , list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[70px]'),list.classList.remove('opacity-100'))
-        }
-    </script>
+            </footer>
+        </section>          
+       </div>
+    </div>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://demo.themesberg.com/windster/app.bundle.js"></script>
+ </div>
 </body>
 </html>
