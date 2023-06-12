@@ -7,7 +7,30 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Admin - Dashboard</title>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script> 
+    
+    <script>
+		var firebaseConfig = {
+			apiKey: "AIzaSyA4m95ssBRD4lEAFdReLjXbp6eNGv6RaSg",
+            authDomain: "musicstore-6e0e0.firebaseapp.com",
+            databaseURL: "https://musicstore-6e0e0-default-rtdb.firebaseio.com",
+            projectId: "musicstore-6e0e0",
+            storageBucket: "musicstore-6e0e0.appspot.com",
+            messagingSenderId: "176855708478",
+            appId: "1:176855708478:web:f9773f5c0a3d1bf3fb726f",
+            measurementId: "G-RQ783BLG3R"
+		};
+	
+	 	// Initialize Firebase
+	 	firebase.initializeApp(firebaseConfig); 
+		firebase.analytics();
+	</script>
+
+    <title>Admin - Add Guitar Instrument</title>
 </head>
 <body>
 <!-- component -->
@@ -58,9 +81,9 @@
        </div>
     </nav>
     <div class="flex overflow-hidden bg-white pt-16">
-       <aside id="sidebar" class="fixed hidden z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75" aria-label="Sidebar">
-          <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-zinc-200 pt-0">
-             <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+        <aside id="sidebar" class="fixed hidden z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75" aria-label="Sidebar">
+            <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-zinc-200 pt-0">
+                <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                 <div class="flex-1 px-3 bg-zinc-200 divide-y space-y-1">
                     <ul class="space-y-2 pb-2">
                         <li>
@@ -146,15 +169,62 @@
                         </li>                      
                     </ul>
                 </div>
-             </div>
-          </div>
-       </aside>
-       <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
-       <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
-          <main>
-             
-          </main>
-          <section>        
+                </div>
+            </div>
+        </aside>
+        <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
+        <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
+            <main>
+                <form class="m-10">
+                    <div class="space-y-12">
+                        <div class="border-b border-gray-900/10 pb-12">
+                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div class="sm:col-span-4">
+                                    <div class="max-w-sm">
+                                        <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
+                                        <div class="mt-2">
+                                            <input id="name" name="name" type="text" autocomplete="name" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-4">
+                                    <div class="max-w-sm">
+                                        <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Seri</label>
+                                        <div class="mt-2">
+                                            <input id="seri" name="seri" type="text" autocomplete="nickname" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="col-span-full">
+                                    <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About</label>
+                                    <div class="mt-2">
+                                        <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-4">
+                                    <div class="max-w-xs">
+                                        <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
+                                        <div class="mt-2 flex">
+                                            <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                                                Rp
+                                            </span>
+                                            <input id="price" name="price" type="number" autocomplete="price" class="block w-full rounded-r-lg border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        </div>
+                                    </div>
+                                </div>              
+                            </div>
+                        </div>                          
+                    </div>
+                    
+                    <div class="mt-6 flex items-center justify-end gap-x-6">
+                        <button type="button" value="Save" onclick="save_product();" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit</button>
+                    </div>
+                </form>
+            </main>
+            <section>        
             <footer class="bg-zinc-800 rounded-lg shadow dark:bg-gray-900 m-4 text-white">
                 <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                     <div class="sm:flex sm:items-center sm:justify-between">
@@ -190,10 +260,43 @@
                 </div>
             </footer>
         </section>          
-       </div>
+        </div>
     </div>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://demo.themesberg.com/windster/app.bundle.js"></script>
+    <script>  
+        var databaseRef = firebase.database().ref('product_guitar/');
+        function save_product(){
+            var name = document.getElementById('name').value; 
+            var seri = document.getElementById('seri').value; 
+            var about = document.getElementById('about').value; 
+            var price = document.getElementById('price').value;
+               
+        
+            var uid = firebase.database().ref().child('product_guitar').push().key; 
+        
+            alert(uid + 'test')
+        
+            var data = { 
+                name: name, 
+                seri: seri, 
+                about: about,
+                price: price 
+            } 
+        
+            var updates = {}; 
+                updates['/product_guitar/' + uid] = data; 
+                firebase.database().ref().update(updates); 
+                  
+                alert('product created successfully!'); 
+                     reload_page(); 
+            } 
+            
+            function reload_page(){ 
+                 window.location.reload(); 
+            } 
+               
+        </script>
  </div>
 </body>
 </html>
