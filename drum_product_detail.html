@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/boombox-fill.svg" type = "image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <!-- <style type="text/tailwindcss">
+        * {
+            border: 1px solid red;
+        }
+    </style> -->
+    
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        roboto: ['Roboto'],
+                        opensans: ['Open Sans'],
+                        poppins: ['Poppins'],
+                    },
+                },
+            },
+        };
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Rydeen RDP2F5</title>
+</head>
+<body>
+    <section>
+        <nav class="p-5 bg-zinc-800 shadow md:flex md:items-center md:justify-between">
+            <div class="flex justify-between">
+                <a href="index.html" class="flex items-center mb-4 sm:mb-0">
+                    <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-boombox" viewBox="0 0 16 16">
+                        <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                        <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                        <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+                        <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
+                    </svg>
+                    <span class="text-2xl ml-3 font-semibold font-poppins text-white">My Music</span>
+                </a>
+
+                <span class="text-3xl cursor-pointer md:hidden block mx-2 text-white">
+                    <ion-icon name="menu" onclick="Menu(this)"></ion-icon>                    
+                </span>
+            </div>
+
+            <ul class="md:flex md:items-center text-white pt-4 md:pt-0 md:z-auto md:static absolute bg-zinc-800 w-full left-0 md:w-auto py-4 md:py-0 pl-7 md:pl-0 opacity-0 md:opacity-100 top-[-400px] transition-all ease-in duration-500">
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="index.html" class="text-xl">Home</a>                                                                    
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="gallery.html" class="text-xl">Gallery</a>
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="news.html" class="text-xl">News</a>
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="store.html" class="text-xl">Store</a>
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="about.html" class="text-xl">About</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <section>
+        <div class="bg-white">
+            <div class="pt-6">                      
+                <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+                    <div class="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+                    <img src="./img/product-drum/detail/detail4.jpg" class="h-full w-full object-cover object-center">
+                    </div>
+                    <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+                        <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+                            <img src="./img/product-drum/detail/detail1.jpg" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+                            <img src="./img/product-drum/detail/detail3.jpg" class="h-full w-full object-cover object-center">
+                        </div>
+                    </div>
+                    <div class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+                        <img src="./img/product-drum/detail/detail2.jpg" class="h-full w-full object-cover object-center">
+                    </div>
+                </div>
+                      
+                <div class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+                    <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+                        <h1 class="text-2xl font-bold font-poppins tracking-tight text-gray-900 sm:text-3xl">RDP2F5</h1>
+                    </div>
+                          
+                    <div class="mt-4 lg:row-span-3 lg:mt-0">                
+                        <p class="text-3xl tracking-tight text-gray-900 font-poppins">Rp11.200.000</p>          
+                        <p class="text-2xl tracking-tight text-gray-900 font-light">*Retail price (including VAT)</p> 
+                    </div>
+          
+                    <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">                                          
+                        <p class="text-base text-gray-900 font-poppins">The new RYDEEN (5-piece shell pack) is exactly what any beginner or intermediate player would love to play. This drum set utilizes Yamaha hardware featuring Genuine Yamaha tom and pipe clamps and features solid and glitter finishes, each with three color options, for a total of six vibrant, stylish looks.</p>                                                  
+                        <div class="mt-10">                    
+                            <ul role="list" class="list-disc space-y-2 pl-4 text-sm font-poppins">
+                                <li class="text-gray-400"><span class="text-gray-600">2 Size variations (5-piece shell pack)</span></li>
+                                <li class="text-gray-400"><span class="text-gray-600">5 Color Variations</span></li>
+                                <li class="text-gray-400"><span class="text-gray-600">Original Yamaha Tom and pipe clamps</span></li>
+                                <li class="text-gray-400"><span class="text-gray-600">Bass Drum Head type P3</span></li>                                
+                            </ul>                
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>        
+        <footer class="bg-zinc-800 rounded-lg shadow dark:bg-gray-900 m-4 text-white">
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <a href="index.html" class="flex items-center mb-4 sm:mb-0">
+                        <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-boombox" viewBox="0 0 16 16">
+                            <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                            <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                            <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+                            <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
+                        </svg>
+                        <span class="text-2xl ml-3 font-semibold">My Music</span>
+                    </a>
+                    <ul class="flex flex-wrap items-center mb-6 text-sm font-medium font-poppins sm:mb-0 ">
+                        <li>
+                            <a href="index.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Home</a>
+                        </li>
+                        <li>
+                            <a href="gallery.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="news.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">News</a>
+                        </li>
+                        <li>
+                            <a href="store.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Store</a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="hover:underline">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <span class="block text-sm sm:text-center ">© 2023 MyMusic™. All Rights Reserved.</span>
+            </div>
+        </footer>
+    </section>
+
+    <script>
+        function Menu(e){
+          let list = document.querySelector('ul');
+          e.name === 'menu' ? (e.name = "close",list.classList.add('top-[70px]') , list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[70px]'),list.classList.remove('opacity-100'))
+        }
+    </script>
+</body>
+</html>

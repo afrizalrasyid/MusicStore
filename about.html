@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="icon" href="./img/boombox-fill.svg" type = "image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <!-- <style type="text/tailwindcss">
+        * {
+            border: 1px solid red;
+        }
+    </style> -->
+    
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        roboto: ['Roboto'],
+                        opensans: ['Open Sans'],
+                        poppins: ['Poppins'],
+                    },
+                },
+            },
+        };
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <section>
+        <nav class="p-5 bg-zinc-800 shadow md:flex md:items-center md:justify-between">
+            <div class="flex justify-between">
+                <a href="index.html" class="flex items-center mb-4 sm:mb-0">
+                    <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-boombox" viewBox="0 0 16 16">
+                        <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                        <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                        <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+                        <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
+                    </svg>
+                    <span class="text-2xl ml-3 font-semibold font-poppins text-white">My Music</span>
+                </a>
+
+                <span class="text-3xl cursor-pointer md:hidden block mx-2 text-white">
+                    <ion-icon name="menu" onclick="Menu(this)"></ion-icon>                    
+                </span>
+            </div>
+
+            <ul class="md:flex md:items-center text-white pt-4 md:pt-0 md:z-auto md:static absolute bg-zinc-800 w-full left-0 md:w-auto py-4 md:py-0 pl-7 md:pl-0 opacity-0 md:opacity-100 top-[-400px] transition-all ease-in duration-500">
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="index.html" class="text-xl">Home</a>                                                                    
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="gallery.html" class="text-xl">Gallery</a>
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="news.html" class="text-xl">News</a>
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="store.html" class="text-xl">Store</a>
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="about.html" class="text-xl">About</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <section>
+        <div class="py-20">  
+            <div class="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
+                <div class="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
+                  <div class="md:5/12 lg:w-5/12">
+                    <img src="./img/about1.jpg">
+                  </div>
+                  <div class="md:7/12 lg:w-6/12">
+                    <h2 class="text-2xl text-gray-900 font-bold md:text-4xl">About Us</h2>
+                    <p class="mt-6 text-gray-600">My Music is a gallery of musical instruments that can help users if they want to learn music and know more about music. My Music is present in a display that can be accessed via laptops or smartphones.</p>
+                    <p class="mt-4 text-gray-600"> Apart from that, My Music also provides hot news about music so that users can keep up with what's currently trending.</p>
+                  </div>
+                </div>
+            </div>
+          </div>
+    </section>
+
+    <section class="py-10">
+        <h2 class="text-center font-bold font-poppins text-3xl py-4">Meet Our Team</h2>
+        <div class="flex max-w-4xl mx-auto">        
+            <div class="w-full max-w-sm mx-auto">        
+                <div class="flex flex-col items-center pb-10">
+                    <img src="./img/profile.jpg" class="w-48 h-48 my-8 rounded-full" alt="profile">      
+                    <h5 class="text-xl font-medium font-poppins text-black">Dylan Ogyville Prawiro</h5>
+                    <span class="text-sm font-poppins text-gray-500">Group 4</span>
+                </div>
+                
+                <div class="flex flex-row justify-center">
+                    <a href="https://www.instagram.com"><ion-icon name="logo-instagram" class="w-6 h-6 mx-3 text-gray-500 hover:text-gray-700"></ion-icon></a>
+                    <a href="https://www.twitter.com"><ion-icon name="logo-twitter" class="w-6 h-6 mx-3 text-gray-500 hover:text-gray-700"></ion-icon></a>
+                </div>            
+            </div>
+
+            <div class="w-full max-w-sm mx-auto">        
+                <div class="flex flex-col items-center pb-10">                
+                    <img src="./img/profile.jpg" class="w-48 h-48 my-8 rounded-full" alt="profile">                
+                    <h5 class="text-xl font-medium font-poppins text-black">Muhammad Afrizal Rasyid</h5>
+                    <span class="text-sm font-poppins text-gray-500">Group 4</span>
+                </div>
+                
+                <div class="flex flex-row justify-center">
+                    <a href="https://www.instagram.com"><ion-icon name="logo-instagram" class="w-6 h-6 mx-3 text-gray-500 hover:text-gray-700"></ion-icon></a>
+                    <a href="https://www.twitter.com"><ion-icon name="logo-twitter" class="w-6 h-6 mx-3 text-gray-500 hover:text-gray-700"></ion-icon></a>
+                </div>            
+            </div>
+        </div>
+    </section>
+
+    <section>        
+        <footer class="bg-zinc-800 rounded-lg shadow dark:bg-gray-900 m-4 text-white">
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <a href="index.html" class="flex items-center mb-4 sm:mb-0">
+                        <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-boombox" viewBox="0 0 16 16">
+                            <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                            <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                            <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+                            <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
+                        </svg>
+                        <span class="text-2xl ml-3 font-semibold">My Music</span>
+                    </a>
+                    <ul class="flex flex-wrap items-center mb-6 text-sm font-medium font-poppins sm:mb-0 ">
+                        <li>
+                            <a href="index.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Home</a>
+                        </li>
+                        <li>
+                            <a href="gallery.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="news.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">News</a>
+                        </li>
+                        <li>
+                            <a href="store.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Store</a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="hover:underline">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <span class="block text-sm sm:text-center ">© 2023 MyMusic™. All Rights Reserved.</span>
+            </div>
+        </footer>
+    </section>
+
+    
+
+    <script>
+        function Menu(e){
+        let list = document.querySelector('ul');
+        e.name === 'menu' ? (e.name = "close",list.classList.add('top-[70px]') , list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[70px]'),list.classList.remove('opacity-100'))
+        }
+    </script>
+</body>
+</html>

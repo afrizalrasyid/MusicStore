@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/boombox-fill.svg" type = "image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <!-- <style type="text/tailwindcss">
+        * {
+            border: 1px solid red;
+        }
+    </style> -->
+    
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        roboto: ['Roboto'],
+                        opensans: ['Open Sans'],
+                        poppins: ['Poppins'],
+                    },
+                },
+            },
+        };
+    </script>
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
+    <title>My Music</title>
+</head>
+<body>
+    <section>
+        <nav class="p-5 bg-zinc-800 shadow md:flex md:items-center md:justify-between">
+            <div class="flex justify-between">
+                <a href="index.html" class="flex items-center mb-4 sm:mb-0">
+                    <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-boombox" viewBox="0 0 16 16">
+                        <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                        <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                        <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+                        <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
+                    </svg>
+                    <span class="text-2xl ml-3 font-semibold font-poppins text-white">My Music</span>
+                </a>
+
+                <span class="text-3xl cursor-pointer md:hidden block mx-2 text-white">
+                    <ion-icon name="menu" onclick="Menu(this)"></ion-icon>                    
+                </span>
+            </div>
+
+            <ul class="md:flex md:items-center text-white pt-4 md:pt-0 md:z-auto md:static absolute bg-zinc-800 w-full left-0 md:w-auto py-4 md:py-0 pl-7 md:pl-0 opacity-0 md:opacity-100 top-[-400px] transition-all ease-in duration-500">
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="index.html" class="text-xl">Home</a>                                                                    
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="gallery.html" class="text-xl">Gallery</a>
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="news.html" class="text-xl">News</a>
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="store.html" class="text-xl">Store</a>
+                </li>
+                <li class="mb-3 md:mb-0 md:flex md:items-center text-white font-poppins hover:text-gray-300 duration-200">
+                    <a class="mx-4" href="about.html" class="text-xl">About</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <section style="background-image: url('./img/header5.jpg'); background-repeat: no-repeat;  background-size: cover;">
+        <div class="p-52 text-center">
+            <div>
+              <h1 class="font-poppins font-semibold text-2xl md:text-6xl text-white ">Discover Your Music</h1>
+              <p class="lead font-opensans font-light" style="color: white;">“When you play, never mind who listens to you.” – Robert Schumann</p>
+              <a class="btn btn-outline-secondary text-xl  font-poppins text-white hover:text-slate-500"  href="gallery.html">Explore More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="md:h-full flex items-center text-white my-12">
+        <div class="flex flex-wrap m-12">
+            <div class="p-4 sm:w-1/2 lg:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                    <img src="./img/guitar2.jpg" class="lg:h-72 md:h-48 w-full object-cover object-center">
+                    <div class="p-6 hover:bg-zinc-700 text-black hover:text-white transition duration-300 ease-in">
+                        <h1 class="text-2xl font-semibold font-poppins mb-3">Guitar</h1>                    
+                        <p class="leading-relaxed font-light font-poppins mb-[6.6rem]">Meet Your Other Half.</p>                    
+                        <div class="text-black hover:text-white">
+                            <a href="guitar.html" class="text-black inline-flex items-center md:mb-2 lg:mb-0 bg-gray-300 hover:bg-white rounded-lg p-3 font-poppins">View Details</a>                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 sm:w-1/2 lg:w-1/3 ">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                    <img src="./img/drum1.jpg" class="lg:h-72 md:h-48 w-full object-cover object-center">
+                    <div class="p-6 hover:bg-zinc-700 text-black hover:text-white transition duration-300 ease-in">
+                        <h1 class="text-2xl font-semibold font-poppins mb-3">Drum</h1>                    
+                        <p class="leading-relaxed mb-[5rem] font-light font-poppins">Free yourself in Create, Inspire, Connect, and Creativity.</p>                    
+                        <div class="text-black hover:text-white">
+                            <a href="drum.html" class="text-black inline-flex items-center md:mb-2 lg:mb-0 bg-gray-300 hover:bg-white rounded-lg p-3 font-poppins">View Details</a>                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 sm:w-1/2 lg:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                    <img src="./img/piano1.jpg" class="lg:h-72 md:h-48 w-full object-cover object-center">
+                    <div class="p-6 hover:bg-zinc-700 text-black hover:text-white transition duration-300 ease-in">
+                        <h1 class="text-2xl font-semibold font-poppins mb-3">Piano</h1>                    
+                        <p class="leading-relaxed mb-[6.6rem] font-light font-poppins">Skills and innovation in perfect harmony.</p>                    
+                        <div class="text-black hover:text-white">
+                            <a href="piano.html" class="text-black inline-flex items-center md:mb-2 lg:mb-0 bg-gray-300 hover:bg-white rounded-lg p-3 font-poppins">View Details</a>                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </section>
+
+    <section>
+        <div class="max-w-7xl mx-auto">
+            <div id="default-carousel" class="relative" data-carousel="static">
+                <div class="overflow-hidden relative rounded-lg sm:h-64 xl:h-[30rem] 2xl:h-96">
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
+                        <img src="./img/carousel1.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
+                        <img src="./img/carousel2.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
+                        <img src="./img/carousel3.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
+                        <img src="./img/carousel4.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
+                        <img src="./img/carousel5.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>                        
+                        <img src="./img/carousel6.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                </div>                
+
+                <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30">
+                        <ion-icon class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" name="chevron-back-outline"></ion-icon>
+                        <span class="hidden">Left</span>
+                    </span>
+                </button>
+
+                <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 ">
+                        <ion-icon class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" name="chevron-forward-outline"></ion-icon>
+                        <span class="hidden">Right</span>
+                    </span>
+                </button>        
+            </div>
+        </div>
+    </section>   
+        
+    <section>
+        <div class="bg-white sm:py-32 ">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                    <div class="lg:pr-4 mx-4 md:mx-0">
+                        <div class="lg:max-w-lg">                            
+                            <h1 class="mt-2 md:text-4xl font-bold font-poppins tracking-tight text-gray-900 text-3xl">Reach Out to Asia</h1>
+                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">The owner of the most expensive guitar was won by a Fender Stratocaster brand guitar with the 'Reach Out to Asia' edition which in 2005 sold for IDR 38 billion. The uniqueness of this guitar is the signature of 19 world rock stars such as Jimmy Page, Mick Jagger, Eric Clapton, Keith Richards, Brian May, David Gilmour, Jeff Beck, Liam Gallagher, Angus, Malcolm Young, and Bryan Adams.</p>
+                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">This guitar was made specifically to help tsunami victims in the Asian region in 2004 coordinated by Bryan Adams. Because it's the human side that further adds to the value of this guitar. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ml-12 md:-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+                    <img class="w-[48rem] rounded-xl  shadow-xl sm:w-[57rem]" src="./img/content1.png" alt="">
+                </div>
+                
+            </div>
+        </div>          
+    </section>
+
+    <hr class="w-[70rem] mx-auto"/>
+
+    <section>
+        <div class="bg-white sm:py-32 ">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                <div class="lg:col-span-1 lg:col-start-2 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-1 lg:gap-x-8 lg:px-8">
+                    <div class="lg:pr-4 mx-4 md:mx-0">
+                        <div class="lg:max-w-lg">                            
+                            <h1 class="mt-2 md:text-4xl font-bold font-poppins tracking-tight text-gray-900 text-3xl">From the Oldest</h1>
+                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">The Geisenklösterle flute is an ancient flute made of swan bone and mammoth ivory. This flute comes from the plains of Europe, Germany to be precise. The Geisenklösterle flute has an age of 42,000-43,000 years which makes it the oldest musical instrument in the world.</p>
+                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">The flute was found in the Geisenklösterle Cave archaeological site about a decade ago. There are 3 flutes at once found in the cave. The flutes could have been used for an ancient ritual or simply for entertainment.</p>
+                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">The Geisenklösterle flute has special ornamentation and high artistry which makes this instrument very special for historians. On the other hand, there are also archaeologists who believe that this flute could be 40,000-45,000 years old.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ml-11 p-12 lg:sticky lg:top-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+                    <img class="w-[48rem] rounded-xl  shadow-xl sm:w-[57rem]" src="./img/content2.jpg" alt="">
+                </div>
+                
+            </div>
+        </div>          
+    </section>
+
+    <hr class="w-[70rem] mx-auto"/>
+
+    <section>
+        <div class="bg-white sm:py-32 ">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                    <div class="lg:pr-4 mx-4 md:mx-0">
+                        <div class="lg:max-w-lg">                            
+                            <h1 class="mt-2 md:text-4xl font-bold font-poppins tracking-tight text-gray-900 text-3xl">Start from Young</h1>                            
+                            <p class="mt-6 text-xl leading-8 text-gray-700 font-poppins font-light">Music can play a role in growing intelligence and improving children's memory, this is because when listening to music, children's brain cells work more actively. Playing a musical instrument can train motor skills and ear sensitivity to develop coordination between various senses.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ml-12 md:-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+                    <img class="w-[48rem] rounded-xl  shadow-xl sm:w-[57rem]" src="./img/content3.jpg" alt="">
+                </div>
+                
+            </div>
+        </div>          
+    </section>
+    
+    <section>        
+        <footer class="bg-zinc-800 rounded-lg shadow dark:bg-gray-900 m-4 text-white">
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <a href="index.html" class="flex items-center mb-4 sm:mb-0">
+                        <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-boombox" viewBox="0 0 16 16">
+                            <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                            <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                            <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+                            <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
+                        </svg>
+                        <span class="text-2xl ml-3 font-semibold">My Music</span>
+                    </a>
+                    <ul class="flex flex-wrap items-center mb-6 text-sm font-medium font-poppins  sm:mb-0 ">
+                        <li>
+                            <a href="index.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Home</a>
+                        </li>
+                        <li>
+                            <a href="gallery.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="news.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">News</a>
+                        </li>
+                        <li>
+                            <a href="store.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Store</a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="hover:underline">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <span class="block text-sm sm:text-center ">© 2023 MyMusic™. All Rights Reserved.</span>
+            </div>
+        </footer>
+    </section>
+
+    
+    <script>
+        function Menu(e){
+          let list = document.querySelector('ul');
+          e.name === 'menu' ? (e.name = "close",list.classList.add('top-[70px]') , list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[70px]'),list.classList.remove('opacity-100'))
+        }
+    </script>
+</body>
+</html>
