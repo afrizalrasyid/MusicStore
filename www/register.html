@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>    
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+    
+    <script type="module">
+        var firebaseConfig = {
+			apiKey: "AIzaSyA4m95ssBRD4lEAFdReLjXbp6eNGv6RaSg",
+            authDomain: "musicstore-6e0e0.firebaseapp.com",
+            databaseURL: "https://musicstore-6e0e0-default-rtdb.firebaseio.com",
+            projectId: "musicstore-6e0e0",
+            storageBucket: "musicstore-6e0e0.appspot.com",
+            messagingSenderId: "176855708478",
+            appId: "1:176855708478:web:f9773f5c0a3d1bf3fb726f",
+            measurementId: "G-RQ783BLG3R"
+		};
+
+        firebase.initializeApp(firebaseConfig);      
+        firebase.analytics();
+        const auth = firebase.auth();
+    </script>
+
+    <title>Admin - Register</title>
+</head>
+<body class="bg-gray-200">
+    <div>
+        <!-- Container -->
+        <div class="container mx-auto">
+            <div class="flex justify-center px-6 my-12">
+                <!-- Row -->
+                <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                    <!-- Col -->
+                    <div
+                        class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
+                        style="background-image: url('./img/contactus.jpg')"
+                    ></div>
+                    <!-- Col -->
+                    <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+                        <h3 class="pt-4 text-2xl text-center">Welcome!</h3>
+                        <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                            <div class="mb-4">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="username">
+                                    Username
+                                </label>
+                                <input class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="username" type="text" name="username" placeholder="Username" />
+                            </div>                            
+                            <div class="mb-4">                                
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+                                    Email
+                                </label>
+                                <input class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="email" type="email" name="email" placeholder="E-mail" />
+                            </div>
+                            <div class="mb-4">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+                                    Password
+                                </label>
+                                <input class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="password" type="password" name="password" placeholder="Password"/>                                
+                            </div>                                                         
+                            <div class="mb-6 text-center">
+                                <button
+                                    class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"                                    
+                                    onclick="register()"                                   >                                    
+                                    Sign Up
+                                </button>
+                            </div>
+                            <div class="text-center mt-4 font-weight-light">
+                                Already have an account? <a href="login.html" class="text-blue-700">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <script>
+       
+        function register() {
+            username = document.getElementById('username').value
+            email = document.getElementById('email').value
+            password = document.getElementById('password').value            
+
+            // // Validate input fields
+            // if (validate_email(email) == false || validate_password(password) == false) {
+            //     alert('Email or Password is wrong!')
+            //     return            
+            // }            
+            
+            // Move on with Auth
+            auth.createUserWithEmailAndPassword(email, password)
+            .then(function() {
+                // Declare user variable
+                var user = auth.currentUser
+
+                // // Add this user to Firebase Database
+                // var database_ref = database.ref()
+
+                // Create User data
+                var user_data = {
+                username : username,
+                email : email,                
+                last_login : Date.now()
+                }
+
+                // Push to Firebase Database
+                database.ref().child('users/' + user.uid).set(user_data)
+
+                // DOne
+                alert('User Created!')
+            })
+            .catch(function(error) {
+                // Firebase will use this to alert of its errors
+                var error_code = error.code
+                var error_message = error.message
+
+                alert(error_message)
+            })
+        }
+
+        function validate_email(email){
+            expression = /^[^@]+@\w+(\.\w+)+\w$/
+            if (expression.test(email) = true){
+                return true
+            }else{
+                return false
+            }
+        }
+
+        function validate_password(password){            
+            if (password < 6){
+                return false
+            }else{
+                return true
+            }
+        }
+
+        function validate_field(field){            
+            if (field == null){
+                return false
+            }
+            
+            if (field.length <= 0){
+                return false
+            }else{
+                return true
+            }
+        }
+    </script>
+</body>
+</html>

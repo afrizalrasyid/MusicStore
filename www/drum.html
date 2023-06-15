@@ -12,7 +12,7 @@
 	<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script> 
 	<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script> 
 	<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script> 
-    
+
     <script>
 		var firebaseConfig = {
 			apiKey: "AIzaSyA4m95ssBRD4lEAFdReLjXbp6eNGv6RaSg",
@@ -30,7 +30,7 @@
 		firebase.analytics();
 	</script>
 
-    <title>Admin - Add Piano Instrument</title>
+    <title>Admin - Drum Instrument</title>
 </head>
 <body>
 <!-- component -->
@@ -190,130 +190,207 @@
                 </div>
             </div>
         </aside>
-        <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
+       <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
         <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
             <main>
                 <form class="m-10">
                     <div class="space-y-12">
                         <div class="border-b border-gray-900/10 pb-12">
-                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                                <div class="sm:col-span-4">
-                                    <div class="max-w-sm">
-                                        <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
-                                        <div class="mt-2">
-                                            <input id="name" name="name" type="text" autocomplete="name" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        </div>
+                            <h1 class="text-3xl">Drum</h1>
+                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-6">
+                                <div class="col-span-full">
+                                    <div class="mt-2">
+                                      <input  type="text" id="uid" placeholder="ID" autocomplete="street-address" class="h-12 block w-full rounded-xl border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-gray-200">
                                     </div>
                                 </div>
-
-                                <div class="sm:col-span-4">
-                                    <div class="max-w-sm">
-                                        <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Seri</label>
-                                        <div class="mt-2">
-                                            <input id="seri" name="seri" type="text" autocomplete="nickname" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        </div>
+                                <div class="sm:col-span-3">                                    
+                                    <div class="mt-2">
+                                        <input type="text" id="name" placeholder="Drum Name" autocomplete="given-name" class="h-10 block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                     </div>
                                 </div>
                         
-                                <div class="col-span-full">
-                                    <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About</label>
+                                <div class="sm:col-span-3">
                                     <div class="mt-2">
-                                        <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                        <input type="text" id="seri" placeholder="Seri Drum" autocomplete="family-name" class="h-10 block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                     </div>
-                                </div>
-
+                                </div>  
+                                
                                 <div class="sm:col-span-4">
-                                    <div class="max-w-xs">
-                                        <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
-                                        <div class="mt-2 flex">
+                                    <div class="max-w-xs">                                        
+                                        <div class="mt-2 flex h-10">
                                             <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                                                 Rp
                                             </span>
-                                            <input id="price" name="price" type="number" autocomplete="price" class="block w-full rounded-r-lg border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                            <input id="price" placeholder="Drum Price" type="number" autocomplete="price" class="block w-full rounded-r-lg border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         </div>
                                     </div>
-                                </div>              
+                                </div>
+
+                                <div class="col-span-full">
+                                    <div class="mt-2">
+                                        <textarea id="about" placeholder="About Drum" rows="3" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-3">
+                                    <div class="flex">
+                                        <button type="button" value="Update" onclick="update_product();" class="rounded-xl bg-yellow-400 py-3 px-3 mr-1 text-white">Update</button>
+                                        <button type="button" value="Delete" onclick="delete_product();" class="rounded-xl bg-red-600 py-3 px-3 mx-1 text-white">Delete</button>
+                                    </div>
+                                </div> 
                             </div>
                         </div>                          
                     </div>
                     
-                    <div class="mt-6 flex items-center justify-end gap-x-6">
-                        <button type="button" value="Save" onclick="save_product();" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit</button>
+                    
+                    <div class="mt-6 items-center gap-x-6 col-span-full">
+                        <div class="mb-4">
+                            <h1>Data Table Drum</h1>
+                        </div>
+
+                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <table id="tb_drum" class="w-full text-sm text-left text-gray-500 dark:text-gray-400" width="100%" cellspacing="0">
+                                <thead class=" text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr class="uppercase border-gray-800 border-b-2">
+                                        <th scope="col" class="px-6 py-3 bg-gray-100">No.</th>
+                                        <th scope="col" class="px-6 py-3 bg-gray-100">Name</th>
+                                        <th scope="col" class="px-6 py-3 bg-gray-100">Seri</th>
+                                        <th scope="col" class="px-6 py-3 bg-gray-100">Price</th>
+                                        <th scope="col" class="px-6 py-3 bg-gray-100">About</th>                                        
+                                    </tr>
+                                </thead>                                   
+                            </table>                            
+                        </div>
                     </div>
                 </form>
             </main>
             <section>        
-            <footer class="bg-zinc-800 rounded-lg shadow dark:bg-gray-900 m-4 text-white">
-                <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                    <div class="sm:flex sm:items-center sm:justify-between">
-                        <a href="index.html" class="flex items-center mb-4 sm:mb-0">
-                            <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-boombox" viewBox="0 0 16 16">
-                                <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
-                                <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
-                                <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
-                                <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
-                            </svg>
-                            <span class="text-2xl ml-3 font-semibold">My Music</span>
-                        </a>
-                        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium font-poppins  sm:mb-0 ">
-                            <li>
-                                <a href="index.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="gallery.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Users</a>
-                            </li>
-                            <li>
-                                <a href="news.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Gallery</a>
-                            </li>
-                            <li>
-                                <a href="store.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Logout</a>
-                            </li>
-                            <li>
-                                <a href="about.html" class="hover:underline">About</a>
-                            </li>
-                        </ul>
+                <footer class="bg-zinc-800 rounded-lg shadow dark:bg-gray-900 m-4 text-white">
+                    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                        <div class="sm:flex sm:items-center sm:justify-between">
+                            <a href="index.html" class="flex items-center mb-4 sm:mb-0">
+                                <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-boombox" viewBox="0 0 16 16">
+                                    <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                                    <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                                    <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
+                                    <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
+                                </svg>
+                                <span class="text-2xl ml-3 font-semibold">My Music</span>
+                            </a>
+                            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium font-poppins  sm:mb-0 ">
+                                <li>
+                                    <a href="index.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="gallery.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Users</a>
+                                </li>
+                                <li>
+                                    <a href="news.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Gallery</a>
+                                </li>
+                                <li>
+                                    <a href="store.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Logout</a>
+                                </li>
+                                <li>
+                                    <a href="about.html" class="hover:underline">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                        <span class="block text-sm sm:text-center ">© 2023 MyMusic™. All Rights Reserved.</span>
                     </div>
-                    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                    <span class="block text-sm sm:text-center ">© 2023 MyMusic™. All Rights Reserved.</span>
-                </div>
-            </footer>
-        </section>          
+                </footer>
+            </section>          
         </div>
     </div>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://demo.themesberg.com/windster/app.bundle.js"></script>
-    <script>  
-        var databaseRef = firebase.database().ref('product_piano/');
-        function save_product(){
-            var name = document.getElementById('name').value; 
-            var seri = document.getElementById('seri').value; 
-            var about = document.getElementById('about').value; 
-            var price = document.getElementById('price').value;
-               
+
+    <script> 
         
-            var uid = firebase.database().ref().child('product_piano').push().key; 
-                
+        var tbDrum = document.getElementById('tb_drum');
+        var databaseRef = firebase.database().ref('product_drum/');
+        var rowIndex = 1;
         
-            var data = { 
-                name: name, 
-                seri: seri, 
-                about: about,
-                price: price 
-            } 
-        
-            var updates = {}; 
-                updates['/product_piano/' + uid] = data; 
-                firebase.database().ref().update(updates); 
-                  
-                alert('product created successfully!'); 
-                     reload_page(); 
-            } 
+        databaseRef.once('value', function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+                var row = tbDrum.insertRow(rowIndex);
+                var cellId = row.insertCell(0);
+                var cellName = row.insertCell(1);
+                var cellSeri = row.insertCell(2);
+                var cellPrice = row.insertCell(3);
+                var cellAbout = row.insertCell(4);{}
+                cellId.appendChild(document.createTextNode(childKey));
+                cellName.appendChild(document.createTextNode(childData.name));
+                cellSeri.appendChild(document.createTextNode(childData.seri));
+                cellPrice.appendChild(document.createTextNode(childData.price));                                
+                cellAbout.appendChild(document.createTextNode(childData.about));                                
+                rowIndex = rowIndex + 1;
+            });
             
-            function reload_page(){ 
-                 window.location.reload(); 
-            } 
+            var table = document.getElementById("tb_drum");
+            var rows = table.getElementsByTagName("tr");
+            
+            for (i = 0; i < rows.length; i++) {
+                   var currentRow = table.rows[i];
+                   var createClickHandler = function(row) {
+                       return function() {
+                           var cell1 = row.getElementsByTagName("td")[0];
+                           var cell2 = row.getElementsByTagName("td")[1];
+                           var cell3 = row.getElementsByTagName("td")[2];
+                           var cell4 = row.getElementsByTagName("td")[3];
+                           var cell5 = row.getElementsByTagName("td")[4];
+                           var id = cell1.innerHTML;
+                           var name = cell2.innerHTML;
+                           var seri = cell3.innerHTML;
+                           var price = cell4.innerHTML;
+                           var about = cell5.innerHTML;                           
+                           document.getElementById('uid').value = id;
+                           document.getElementById('name').value = name;
+                           document.getElementById('seri').value = seri;
+                           document.getElementById('price').value = price;
+                           document.getElementById('about').value = about;
+                           
+                       };
+                   };
+                currentRow.onclick = createClickHandler(currentRow);
+               }
+            });
+
+        
+            function update_product(){
+               var name = document.getElementById('name').value;
+               var seri = document.getElementById('seri').value;
+               var price = document.getElementById('price').value;
+               var about = document.getElementById('about').value;
+               var uid = document.getElementById('uid').value;
+               var data = {
+                   name: name,
+                   seri: seri,
+                   price: price,
+                   about: about
+               }
+               var updates = {};
+               updates['/product_drum/' + uid] = data;
+               firebase.database().ref().update(updates);
+               alert('product updated successfully!');               
+               reload_page();
+           }
+           
+           function delete_product(){
+               var uid = document.getElementById('uid').value;
+               firebase.database().ref().child('/product_drum/' + uid).remove();
+               alert('product deleted successfully!');
+               reload_page();
+           }
+           
+           function reload_page(){
+               window.location.reload();
+           }
                
         </script>
+
  </div>
 </body>
 </html>

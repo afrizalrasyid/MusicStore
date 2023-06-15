@@ -30,7 +30,7 @@
 		firebase.analytics();
 	</script>
 
-    <title>Admin - Add Piano Instrument</title>
+    <title>Admin - Add Guitar Instrument</title>
 </head>
 <body>
 <!-- component -->
@@ -201,38 +201,19 @@
                                     <div class="max-w-sm">
                                         <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
                                         <div class="mt-2">
-                                            <input id="name" name="name" type="text" autocomplete="name" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                            <input id="userName" name="name" type="text" autocomplete="name" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="sm:col-span-4">
                                     <div class="max-w-sm">
-                                        <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Seri</label>
+                                        <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
                                         <div class="mt-2">
-                                            <input id="seri" name="seri" type="text" autocomplete="nickname" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                            <input id="userEmail" name="seri" type="text" autocomplete="nickname" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         </div>
                                     </div>
-                                </div>
-                        
-                                <div class="col-span-full">
-                                    <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About</label>
-                                    <div class="mt-2">
-                                        <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="sm:col-span-4">
-                                    <div class="max-w-xs">
-                                        <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
-                                        <div class="mt-2 flex">
-                                            <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
-                                                Rp
-                                            </span>
-                                            <input id="price" name="price" type="number" autocomplete="price" class="block w-full rounded-r-lg border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        </div>
-                                    </div>
-                                </div>              
+                                </div>                                                                 
                             </div>
                         </div>                          
                     </div>
@@ -283,26 +264,21 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://demo.themesberg.com/windster/app.bundle.js"></script>
     <script>  
-        var databaseRef = firebase.database().ref('product_piano/');
+        var databaseRef = firebase.database().ref('users/');
         function save_product(){
-            var name = document.getElementById('name').value; 
-            var seri = document.getElementById('seri').value; 
-            var about = document.getElementById('about').value; 
-            var price = document.getElementById('price').value;
+            var name = document.getElementById('userName').value; 
+            var email = document.getElementById('userEmail').value; 
                
         
-            var uid = firebase.database().ref().child('product_piano').push().key; 
-                
+            var uid = firebase.database().ref().child('users').push().key;                     
         
             var data = { 
                 name: name, 
-                seri: seri, 
-                about: about,
-                price: price 
+                email: email                 
             } 
         
             var updates = {}; 
-                updates['/product_piano/' + uid] = data; 
+                updates['/users/' + uid] = data; 
                 firebase.database().ref().update(updates); 
                   
                 alert('product created successfully!'); 
