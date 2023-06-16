@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/boombox-fill.svg" type = "image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+    
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Admin - Dashboard</title>
+    <title>Admin - Home</title>
 </head>
-<body>
-<!-- component -->
-<!-- This is an example component -->
+<body onload="display()">
 <div>
     <nav class="bg-zinc-200 border-b border-gray-400 fixed z-30 w-full">
        <div class="px-3 py-3 lg:px-5 lg:pl-3">
@@ -33,51 +38,25 @@
                         <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
                     </svg>
                     <span class="pl-1 whitespace-nowrap">My Music</span>
-                </a>
-                <form action="#" method="GET" class="hidden lg:block lg:pl-32">
-                   <label for="topbar-search" class="sr-only">Search</label>
-                   <div class="mt-1 relative lg:w-96">
-                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                         <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                         </svg>
-                      </div>
-                      <input type="text" name="email" id="topbar-search" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
-                   </div>
-                </form>
+                </a>                
              </div>
-             <div class="flex items-center">
-                <button id="toggleSidebarMobileSearch" type="button" class="lg:hidden text-gray-500 hover:text-gray-900 hover:bg-gray-100 p-2 rounded-lg">
-                   <span class="sr-only">Search</span>
-                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                   </svg>
-                </button>                        
+             
+             <div class="flex items-end p-0">                
+                <span class="mr-2 mb-1 d-none d-lg-inline text-gray-600 small"><div 
+                    id="username"></div></span> 
+                <img src="./img/profile.jpg" class="w-8 h-8 rounded-full" alt="profile">
              </div>
           </div>
        </div>
     </nav>
-    <div class="flex overflow-hidden bg-white pt-16">
-        <aside id="sidebar" class="fixed hidden z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75" aria-label="Sidebar">
+    <div class="flex overflow-hidden bg-white pt-14">
+        <aside id="sidebar" class="fixed hidden z-20 h-full top-0 left-0 pt-14 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75" aria-label="Sidebar">
             <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-zinc-200 pt-0">
                 <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                 <div class="flex-1 px-3 bg-zinc-200 divide-y space-y-1">
-                    <ul class="space-y-2 pb-2">
+                    <ul class="space-y-2 pb-2">                        
                         <li>
-                            <form action="#" method="GET" class="lg:hidden">
-                            <label for="mobile-search" class="sr-only">Search</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                                    </svg>
-                                </div>
-                                <input type="text" name="email" id="mobile-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-600 focus:ring-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
-                            </div>
-                            </form>
-                        </li>
-                        <li>
-                            <a href="home.html" class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
+                            <a href="index.html" class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                     <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
                                     <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
@@ -145,17 +124,9 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>                        
+                        </li>                                                
                         <li>
-                            <a href="user.html" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
-                            <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="ml-3 flex-1 whitespace-nowrap">User</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                            <a onclick="signOut()" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
                                 <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path>
                                 </svg>
@@ -167,51 +138,22 @@
                 </div>
             </div>
         </aside>
-       <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
-       <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
-          <main>
-             
-          </main>
-          <section>        
-            <footer class="bg-zinc-800 rounded-lg shadow dark:bg-gray-900 m-4 text-white">
-                <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                    <div class="sm:flex sm:items-center sm:justify-between">
-                        <a href="index.html" class="flex items-center mb-4 sm:mb-0">
-                            <svg class="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-boombox" viewBox="0 0 16 16">
-                                <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm7.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm-7-1a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm5.5 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
-                                <path d="M11.5 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm0-1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM5 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
-                                <path d="M7 10.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-1 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/>
-                                <path d="M14 0a.5.5 0 0 1 .5.5V2h.5a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12.5V.5A.5.5 0 0 1 14 0ZM1 3v3h14V3H1Zm14 4H1v7h14V7Z"/>
-                            </svg>
-                            <span class="text-2xl ml-3 font-semibold">My Music</span>
-                        </a>
-                        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium font-poppins  sm:mb-0 ">
-                            <li>
-                                <a href="index.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="gallery.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Users</a>
-                            </li>
-                            <li>
-                                <a href="news.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Gallery</a>
-                            </li>
-                            <li>
-                                <a href="store.html" class="mr-4 hover:text-gray-300 duration-200 md:mr-6">Logout</a>
-                            </li>
-                            <li>
-                                <a href="about.html" class="hover:underline">About</a>
-                            </li>
-                        </ul>
+               
+       <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">          
+            <section class="w-full h-[35rem]" style="background-image: url('./img/header5.jpg'); background-repeat: no-repeat;  background-size: cover;">
+                <div class="text-center">
+                    <div class="pt-52">
+                      <h1 class="font-poppins font-semibold text-2xl md:text-6xl text-white ">Welcome!</h1>                      
                     </div>
-                    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                    <span class="block text-sm sm:text-center ">© 2023 MyMusic™. All Rights Reserved.</span>
                 </div>
-            </footer>
-        </section>          
+            </section>
        </div>
     </div>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://demo.themesberg.com/windster/app.bundle.js"></script>
+
+    <script src="js/index.js"></script>
+
  </div>
 </body>
 </html>
